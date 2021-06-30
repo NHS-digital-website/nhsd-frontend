@@ -8,6 +8,9 @@ import NHSDTable from '../components/molecules/table/table';
 import NHSDTabs from '../components/molecules/tabs/tabs';
 import NHSDNotificationBanner from '../components/molecules/notification-banner/notification-banner';
 import NHSDBreadcrumbs from '../components/molecules/breadcrumbs/breadcrumbs';
+import NHSDShowModalButton from '../components/templates/modal-page/modal-page';
+import NHSDModal from '../components/organisms/modal/modal';
+import NHSDCookiePreference from '../components/organisms/modal/cookie-preference';
 
 window.nhsd = nhsd;
 
@@ -30,12 +33,15 @@ function initComponent(selector, componentClass) {
 }
 
 export default function init() {
-    initComponent('.nhsd-o-global-header', NHSDGlobalHeader);
+    initComponent('.nhsd-m-breadcrumbs', NHSDBreadcrumbs);
     initComponent('.nhsd-o-code-viewer', NHSDCodeViewer);
-    initComponent('.nhsd-m-sticky-navigation', NHSDStickyNavigation);
     initComponent('.nhsd-m-filter-menu-section', NHSDFilterMenuSection);
+    initComponent('.nhsd-o-global-header', NHSDGlobalHeader);
+    initComponent('.nhsd-o-modal', NHSDModal);
+    initComponent('.nhsd-m-notification-banner', NHSDNotificationBanner);
+    initComponent('.nhsd-m-sticky-navigation', NHSDStickyNavigation);
+    initComponent('.nhsd-o-modal__show-modal-button', NHSDShowModalButton);
     initComponent('.nhsd-m-table', NHSDTable);
     initComponent('.nhsd-m-tabs', NHSDTabs);
-    initComponent('.nhsd-m-notification-banner', NHSDNotificationBanner);
-    initComponent('.nhsd-m-breadcrumbs', NHSDBreadcrumbs);
+    initComponent('.nhsd-o-modal__cookie-preference', NHSDCookiePreference);
 }

@@ -1,0 +1,49 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_button,
+  nhsd_a_box_start,
+  nhsd_a_box_end
+-%}
+
+{# Expander list marco #}
+{% macro nhsd_o_exapner_list(params) -%}
+  {% include "../expander-list/template.njk" %}
+{%- endmacro %}
+
+{#- Set classes -#}
+{% set classNames = "nhsd-o-modal" %}
+{%- if params.classes -%}
+  {% set classNames = classNames + " " + params.classes %}
+{%- endif -%}
+
+<div class="{{classNames}}"  data-target="modal"  aria-labelledby="nhsd-o-modal__content-header"
+     aria-modal="true">
+    {%- if params.dialog -%}
+        <div class="nhsd-o-modal__wrapper">
+            <dialog class="nhsd-o-modal__container" tabIndex="-1">
+    {%- else -%}
+        <div class="nhsd-o-modal__container">
+    {%- endif -%}
+            {{ nhsd_a_box_start(params.box.classes) }}
+                <div class="nhsd-o-modal__content">
+                    <h1 class="nhsd-o-modal__content-header nhsd-t-heading-xs">{{ params.title|safe }}</h1>
+                    <p class="nhsd-t-body-s">{{ params.topContent|safe }}</p>
+                    <p class="nhsd-t-body-s">{{ params.bottomContent|safe }}</p>
+                </div>
+                 {%- if params.expanderList -%}
+                    <div class="nhsd-o-modal__cookie-preference">
+                        {{ nhsd_o_exapner_list(params.expanderList) }}
+                    </div>
+                {%- endif -%} 
+                <div class="nhsd-o-modal__button-container nhsd-!t-padding-top-2">
+                    {{nhsd_a_button(params.secondaryButton)}}
+                    {{nhsd_a_button(params.primaryButton)}}
+                </div>
+            {{ nhsd_a_box_end() }}
+    {%- if params.dialog -%}
+             </dialog>
+        </div>
+    {%- else -%}
+        </div>
+    {%- endif -%}
+</div>

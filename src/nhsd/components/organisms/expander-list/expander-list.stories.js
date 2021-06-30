@@ -45,11 +45,11 @@ export default {
       control: {
         type: 'select',
         options: [
-          'most people',
-          'some people',
+          'default expander',
+          'simple expander',
         ],
       },
-      defaultValue: 'most people',
+      defaultValue: 'default expander',
     },
   },
 };
@@ -60,17 +60,18 @@ const Template = (args) => template.render({ params: { ...args } });
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
 LabComponent.args = {
+  type: 'default expander',
   expanders: [
     {
-      heading: '"Most people" one',
+      heading: '"Default expander" one',
       content: 'This is the content inside an expander. It can contain text, images and other content by using the visual editor.',
     },
     {
-      heading: '"Most people" two',
+      heading: '"Default expander" two',
       content: 'This is the content inside an expander. It can contain text, images and other content by using the visual editor.',
     },
     {
-      heading: '"Most people" three',
+      heading: '"Default expander" three',
       content: 'This is the content inside an expander. It can contain text, images and other content by using the visual editor.',
     },
   ],
@@ -83,29 +84,87 @@ LabComponent.parameters = {
   },
 };
 
-export const SomePeople = Template.bind({});
-SomePeople.storyName = sbConfig.title.SomePeople;
-SomePeople.args = {
-  type: 'some people',
+export const SimpleExpander = Template.bind({});
+SimpleExpander.storyName = sbConfig.title.SimpleExpander;
+SimpleExpander.args = {
+  type: 'simple expander',
   expanders: [
     {
-      heading: '"Some people" one',
+      heading: '"Some expander" one',
       content: 'This is the content inside an expander. It can contain text, images and other content by using the visual editor.',
     },
     {
-      heading: '"Some people" two',
+      heading: '"Some expander" two',
       content: 'This is the content inside an expander. It can contain text, images and other content by using the visual editor.',
     },
     {
-      heading: '"Some people" three',
+      heading: '"Some expander" three',
       content: 'This is the content inside an expander. It can contain text, images and other content by using the visual editor.',
     },
   ],
 };
-SomePeople.parameters = {
+SimpleExpander.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${SomePeople(SomePeople.args)}`,
+      code: `${sourceCode}\n${SimpleExpander(SimpleExpander.args)}`,
+    },
+  },
+};
+
+export const SimpleExpanderWithToggle = Template.bind({});
+SimpleExpanderWithToggle.storyName = sbConfig.title.SimpleExpanderWithToggle;
+SimpleExpanderWithToggle.args = {
+  type: 'simple expander',
+  toggle: {
+  },
+  expanders: [
+    {
+      heading: 'Simple one',
+      content: 'This is the content inside an expander. It can contain text, images and other content by using the visual editor.',
+    },
+    {
+      heading: 'Preference',
+      content: 'This is the content inside an expander. It can contain text, images and other content by using the visual editor.',
+      expanderTable: {
+        table: {
+          headings: [{
+            text: 'Name',
+            disableSort: true,
+          }, {
+            text: 'Provider',
+            disableSort: true,
+          }, {
+            text: 'Purpose',
+            disableSort: true,
+          }, {
+            text: 'Expiry',
+            disableSort: true,
+          }, {
+            text: 'Type',
+            disableSort: true,
+          }],
+          data: [
+            {
+              cells: [
+                ['__cfduid', 'Cdnjs', 'Used by the content network, Cloudflare, to identify trusted web traffic.', '30 days', 'HTTP'],
+              ],
+            },
+          ],
+          repsonsive: true,
+        },
+      },
+    },
+    {
+      heading: 'Simple three',
+      content: 'This is the content inside an expander. It can contain text, images and other content by using the visual editor.',
+    },
+  ],
+  removeLastHR: true,
+};
+SimpleExpanderWithToggle.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${SimpleExpander(SimpleExpander.args)}`,
     },
   },
 };

@@ -6,7 +6,7 @@
 
 {%- if not params.nested -%}
   <label class="{{ classNames }}" aria-label="{{ params.label }}">
-    <input type="checkbox" checked />
+    <input type="checkbox" checked focusable="true"/>
     <span class="slider"></span>
   </label>
 {%- else -%}

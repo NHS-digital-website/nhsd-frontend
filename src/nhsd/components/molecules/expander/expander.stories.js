@@ -45,11 +45,11 @@ export default {
       control: {
         type: 'select',
         options: [
-          'most people',
-          'some people',
+          'defualt expander',
+          'simple expander',
         ],
       },
-      defaultValue: 'most people',
+      defaultValue: 'default expander',
     },
   },
 };
@@ -60,9 +60,9 @@ const Template = (args) => template.render({ params: { ...args } });
 export const LabComponent = Template.bind({});
 LabComponent.storyName = sbConfig.title.lab;
 LabComponent.args = {
-  heading: '"Most people" expander',
+  heading: 'Default expander',
   content: 'This is the content inside an expander. It can contain text, images and other content by using the visual editor.',
-  type: 'most people',
+  type: 'default expander',
 };
 LabComponent.parameters = {
   docs: {
@@ -72,17 +72,62 @@ LabComponent.parameters = {
   },
 };
 
-export const SomePeople = Template.bind({});
-SomePeople.storyName = sbConfig.title.SomePeople;
-SomePeople.args = {
-  heading: '"Some people" expander',
+export const SimpleExpander = Template.bind({});
+SimpleExpander.storyName = sbConfig.title.SimpleExpander;
+SimpleExpander.args = {
+  heading: 'Simple expander',
   content: 'This is the content inside an expander. It can contain text, images and other content by using the visual editor.',
-  type: 'some people',
+  type: 'simple expander',
 };
-SomePeople.parameters = {
+SimpleExpander.parameters = {
   docs: {
     source: {
-      code: `${sourceCode}\n${SomePeople(SomePeople.args)}`,
+      code: `${sourceCode}\n${SimpleExpander(SimpleExpander.args)}`,
+    },
+  },
+};
+
+export const SimpleExpanderWithToggle = Template.bind({});
+SimpleExpanderWithToggle.storyName = sbConfig.title.SimpleExpanderWithToggle;
+SimpleExpanderWithToggle.args = {
+  heading: 'Preferences',
+  content: 'This is the content inside an expander. It can contain text, images and other content by using the visual editor.',
+  type: 'simple Expander',
+  toggle: {
+  },
+  expanderTable: {
+    table: {
+      headings: [{
+        text: 'Name',
+        disableSort: true,
+      }, {
+        text: 'Provider',
+        disableSort: true,
+      }, {
+        text: 'Purpose',
+        disableSort: true,
+      }, {
+        text: 'Expiry',
+        disableSort: true,
+      }, {
+        text: 'Type',
+        disableSort: true,
+      }],
+      data: [
+        {
+          cells: [
+            ['__cfduid', 'Cdnjs', 'Used by the content network, Cloudflare, to identify trusted web traffic.', '30 days', 'HTTP'],
+          ],
+        },
+      ],
+      repsonsive: true,
+    },
+  },
+};
+SimpleExpanderWithToggle.parameters = {
+  docs: {
+    source: {
+      code: `${sourceCode}\n${SimpleExpanderWithToggle(SimpleExpanderWithToggle.args)}`,
     },
   },
 };

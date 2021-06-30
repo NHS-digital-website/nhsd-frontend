@@ -2,8 +2,14 @@
 {%- from "../../../njk/macros/atoms.njk" import
   nhsd_a_icon,
   nhsd_a_box_start,
-  nhsd_a_box_end
+  nhsd_a_box_end,
+  nhsd_a_selector_toggle
 -%}
+
+{# Table marco #}
+{% macro nhsd_m_table(params) -%}
+  {% include "../table/template.njk" %}
+{%- endmacro %}
 
 {#- Define ARIA attributes -#}
 {% set ariaLabel = params.heading %}
@@ -16,7 +22,7 @@
 {%- endif -%}
 
 <div class="{{ classNames }}">
-  {% if params.type === 'most people' %}
+  {% if params.type === 'default expander' %}
     {{ nhsd_a_box_start('nhsd-a-box--bg-light-grey') }}
   {% endif %}
   <details>
@@ -32,8 +38,18 @@
       <span class="nhsd-t-body">
         {{ params.content }}
       </span>
+      {% if params.expanderTable %}
+        <div class="nhsd-m-expander__table">
+          {{ nhsd_m_table(params.expanderTable) }}
+        </div>
+      {% endif %}
     </div>
   </details>
+  {% if params.toggle %}
+    <div class="nhsd-m-expander__toggle">
+      {{ nhsd_a_selector_toggle() }}
+     </div>
+  {% endif %}
   {% if params.type === 'most people' %}
     {{ nhsd_a_box_end() }}
   {% endif %}

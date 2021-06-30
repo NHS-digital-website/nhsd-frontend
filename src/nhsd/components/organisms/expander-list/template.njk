@@ -16,11 +16,22 @@
 
 <div class="{{ classNames }}">
   {% for expander in params.expanders %}
-    <div class="nhsd-o-expander-list__expander">
-      {{ nhsd_m_expander({ heading: expander.heading, content: expander.content, type: params.type }) }}
-    </div>
-    {% if params.type === 'some people' %}
-      {{ nhsd_a_horizontal_rule({ classes: 'nhsd-a-horizontal-rule--size-s' }) }}
+    {% if params.type === 'simple expander' %}
+      <p>{{expander.last}}</p>
+      <div class="nhsd-o-expander-list__expander">
+        {{ nhsd_m_expander({ heading: expander.heading, content: expander.content, type: params.type, toggle: params.toggle, expanderTable: expander.expanderTable }) }}
+      </div> 
+      {% if params.removeLastHR %}
+        {% if not (params.expanders | last === expander) %}
+          {{ nhsd_a_horizontal_rule({ classes: 'nhsd-a-horizontal-rule--size-s' }) }}
+        {% endif %}
+      {% else %}
+        {{ nhsd_a_horizontal_rule({ classes: 'nhsd-a-horizontal-rule--size-s' }) }}
+      {% endif %}
+    {% else %}
+      <div class="nhsd-o-expander-list__expander nhsd-!t-margin-bottom-3">
+        {{ nhsd_m_expander({ heading: expander.heading, content: expander.content, type: params.type, toggle: params.toggle, expanderTable: expander.expanderTable }) }}
+      </div> 
     {% endif %}
   {% endfor %}
 </div>

@@ -1,0 +1,29 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import  
+    nhsd_a_button
+-%}
+{%- from "../../../njk/macros/molecules.njk" import
+    nhsd_m_sticky_nav,
+    nhsd_m_publication_chapter_navigation 
+-%}
+{%- from "../../../njk/macros/organisms.njk" import 
+    nhsd_o_chapter_navigation, 
+    nhsd_o_modal
+-%}
+
+
+<div class="nhsd-t-grid nhsd-!t-display-chapters">
+    {{nhsd_o_chapter_navigation(params.chapterNavigation)}}
+    {{ nhsd_o_modal(params.modal) }}
+    <div class="nhsd-t-row">
+        <div class="nhsd-t-col-3 nhsd-!t-display-hide nhsd-!t-display-l-show">
+            {{ nhsd_m_sticky_nav(params.stickyNav) }}
+        </div>
+        <div class="nhsd-t-col-12 nhsd-t-col-l-9">
+            {{ params.content|safe }}
+            <button class="nhsd-a-button nhsd-o-modal__show-modal-button" type="button" data-target="modal">
+                <span class="nhsd-a-button__label">Show Modal</span>
+            </button>
+        </div>
+    </div>
+</div>
