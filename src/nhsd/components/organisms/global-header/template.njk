@@ -1,7 +1,8 @@
 {#- Import atom macros -#}
 {%- from "../../../njk/macros/atoms.njk" import
   nhsd_a_icon_link,
-  nhsd_a_horizontal_rule
+  nhsd_a_horizontal_rule,
+  nhsd_a_image
 -%}
 
 {#- Import molecule macros -#}
@@ -9,7 +10,8 @@
   nhsd_m_button_nav,
   nhsd_m_logo_link,
   nhsd_m_menu_bar,
-  nhsd_m_search_bar
+  nhsd_m_search_bar,
+  nhsd_m_mega_menu_bar
 -%}
 
 {#- Set classes -#}
@@ -61,4 +63,256 @@
     </div>
   </div>
   {{ nhsd_a_horizontal_rule({ classes: 'nhsd-!t-margin-0' }) }}
+  <div class="nhsd-o-global-header__mega-menu" data-target="coronavirus" >
+    <div class="nhsd-t-grid">
+      <div class="nhsd-t-row">
+          <div class="nhsd-t-col-12 nhsd-!t-padding-left-0">
+            <div class="nhsd-o-global-header__mega-menu-back">
+              {{ nhsd_a_icon_link({
+                classes: "nhsd-o-global-header__mega-menu__back-button nhsd-a-icon-link--col-white",
+                mirrored: 'true',
+                label: "Back to main menu",
+                icon: {
+                  id: "arrow_left",
+                  classes: "nhsd-a-icon--size-m"
+                }
+              }) }}
+            </div>
+            <div class="nhsd-o-global-header__mega-menu-close">
+              {{ nhsd_a_icon_link({
+                classes: "nhsd-o-global-header__mega-menu__close-button nhsd-a-icon-link--col-white",
+                label: "Close mega menu",
+                icon: {
+                  id: "x_circled",
+                  classes: "nhsd-a-icon--size-m"
+                }
+              }) }}
+            </div>
+          </div>
+          <div class="nhsd-o-global-header__mega-menu__bar nhsd-t-col-6 nhsd-!t-padding-left-0">
+            {{ nhsd_m_mega_menu_bar(params.megaMenuCoronavirus) }}
+          </div>
+          <div class="nhsd-o-global-header__mega-menu__image nhsd-t-col-6 nhsd-!t-padding-right-0">
+            {{ nhsd_a_image(params.megaMenuCoronavirus.image) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="nhsd-o-global-header__mega-menu" data-target="data" >
+    <div class="nhsd-t-grid"> 
+      <div class="nhsd-t-row">
+          <div class="nhsd-t-col-12">
+            <div class="nhsd-o-global-header__mega-menu-back">
+              {{ nhsd_a_icon_link({
+                classes: "nhsd-o-global-header__mega-menu__back-button nhsd-a-icon-link--col-white",
+                mirrored: 'true',
+                label: "Back to main menu",
+                icon: {
+                  id: "arrow_left",
+                  classes: "nhsd-a-icon--size-m"
+                }
+              }) }}
+            </div>
+            <div class="nhsd-o-global-header__mega-menu-close">
+              {{ nhsd_a_icon_link({
+                classes: "nhsd-o-global-header__mega-menu__close-button nhsd-a-icon-link--col-white",
+                label: "Close mega menu",
+                icon: {
+                  id: "x_circled",
+                  classes: "nhsd-a-icon--size-m"
+                }
+              }) }}
+            </div>
+          </div>
+          <div class="nhsd-o-global-header__mega-menu__bar nhsd-t-col-8  nhsd-!t-padding-left-0">
+            {{ nhsd_m_mega_menu_bar(params.megaMenuData) }}
+          </div>
+          <div class="nhsd-o-global-header__mega-menu__image nhsd-t-col-4 nhsd-!t-padding-right-0">
+            {{ nhsd_a_image(params.megaMenuData.image) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="nhsd-o-global-header__mega-menu" data-target="service" >
+    <div class="nhsd-t-grid"> 
+      <div class="nhsd-t-row">
+          <div class="nhsd-t-col-12">
+            <div class="nhsd-o-global-header__mega-menu-back">
+              {{ nhsd_a_icon_link({
+                classes: "nhsd-o-global-header__mega-menu__back-button nhsd-a-icon-link--col-white",
+                mirrored: 'true',
+                label: "Back to main menu",
+                icon: {
+                  id: "arrow_left",
+                  classes: "nhsd-a-icon--size-m"
+                }
+              }) }}
+            </div>
+            <div class="nhsd-o-global-header__mega-menu-close">
+              {{ nhsd_a_icon_link({
+                classes: "nhsd-o-global-header__mega-menu__close-button nhsd-a-icon-link--col-white",
+                label: "Close mega menu",
+                icon: {
+                  id: "x_circled",
+                  classes: "nhsd-a-icon--size-m"
+                }
+              }) }}
+            </div>
+          </div>
+          <div class="nhsd-o-global-header__mega-menu__bar nhsd-t-col-6  nhsd-!t-padding-left-0">
+            {{ nhsd_m_mega_menu_bar(params.megaMenuService) }}
+          </div>
+          <div class="nhsd-o-global-header__mega-menu__image nhsd-t-col-6 nhsd-!t-padding-right-0">
+            {{ nhsd_a_image(params.megaMenuService.image) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="nhsd-o-global-header__mega-menu" data-target="cyber" >
+    <div class="nhsd-t-grid"> 
+      <div class="nhsd-t-row">
+          <div class="nhsd-t-col-12">
+            <div class="nhsd-o-global-header__mega-menu-back">
+              {{ nhsd_a_icon_link({
+                classes: "nhsd-o-global-header__mega-menu__back-button nhsd-a-icon-link--col-white",
+                mirrored: 'true',
+                label: "Back to main menu",
+                icon: {
+                  id: "arrow_left",
+                  classes: "nhsd-a-icon--size-m"
+                }
+              }) }}
+            </div>
+            <div class="nhsd-o-global-header__mega-menu-close">
+              {{ nhsd_a_icon_link({
+                classes: "nhsd-o-global-header__mega-menu__close-button nhsd-a-icon-link--col-white",
+                label: "Close mega menu",
+                icon: {
+                  id: "x_circled",
+                  classes: "nhsd-a-icon--size-m"
+                }
+              }) }}
+            </div>
+          </div>
+          <div class="nhsd-o-global-header__mega-menu__bar nhsd-t-col-6  nhsd-!t-padding-left-0">
+            {{ nhsd_m_mega_menu_bar(params.megaMenuCyber) }}
+          </div>
+          <div class="nhsd-o-global-header__mega-menu__image nhsd-t-col-6 nhsd-!t-padding-right-0">
+            {{ nhsd_a_image(params.megaMenuCyber.image) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="nhsd-o-global-header__mega-menu" data-target="developer" >
+    <div class="nhsd-t-grid"> 
+      <div class="nhsd-t-row">
+          <div class="nhsd-t-col-12">
+            <div class="nhsd-o-global-header__mega-menu-back">
+              {{ nhsd_a_icon_link({
+                classes: "nhsd-o-global-header__mega-menu__back-button nhsd-a-icon-link--col-white",
+                mirrored: 'true',
+                label: "Back to main menu",
+                icon: {
+                  id: "arrow_left",
+                  classes: "nhsd-a-icon--size-m"
+                }
+              }) }}
+            </div>
+            <div class="nhsd-o-global-header__mega-menu-close">
+              {{ nhsd_a_icon_link({
+                classes: "nhsd-o-global-header__mega-menu__close-button nhsd-a-icon-link--col-white",
+                label: "Close mega menu",
+                icon: {
+                  id: "x_circled",
+                  classes: "nhsd-a-icon--size-m"
+                }
+              }) }}
+            </div>
+          </div>
+          <div class="nhsd-o-global-header__mega-menu__bar nhsd-t-col-6  nhsd-!t-padding-left-0">
+            {{ nhsd_m_mega_menu_bar(params.megaMenuDeveloper) }}
+          </div>
+          <div class="nhsd-o-global-header__mega-menu__image nhsd-t-col-6 nhsd-!t-padding-right-0">
+            {{ nhsd_a_image(params.megaMenuDeveloper.image) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="nhsd-o-global-header__mega-menu" data-target="news" >
+    <div class="nhsd-t-grid"> 
+      <div class="nhsd-t-row">
+          <div class="nhsd-t-col-12">
+            <div class="nhsd-o-global-header__mega-menu-back">
+              {{ nhsd_a_icon_link({
+                classes: "nhsd-o-global-header__mega-menu__back-button nhsd-a-icon-link--col-white",
+                mirrored: 'true',
+                label: "Back to main menu",
+                icon: {
+                  id: "arrow_left",
+                  classes: "nhsd-a-icon--size-m"
+                }
+              }) }}
+            </div>
+            <div class="nhsd-o-global-header__mega-menu-close">
+              {{ nhsd_a_icon_link({
+                classes: "nhsd-o-global-header__mega-menu__close-button nhsd-a-icon-link--col-white",
+                label: "Close mega menu",
+                icon: {
+                  id: "x_circled",
+                  classes: "nhsd-a-icon--size-m"
+                }
+              }) }}
+            </div>
+          </div>
+          <div class="nhsd-o-global-header__mega-menu__bar nhsd-t-col-6  nhsd-!t-padding-left-0">
+            {{ nhsd_m_mega_menu_bar(params.megaMenuNews) }}
+          </div>
+          <div class="nhsd-o-global-header__mega-menu__image nhsd-t-col-6 nhsd-!t-padding-right-0">
+            {{ nhsd_a_image(params.megaMenuNews.image) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="nhsd-o-global-header__mega-menu" data-target="aboutus" >
+    <div class="nhsd-t-grid"> 
+      <div class="nhsd-t-row">
+          <div class="nhsd-t-col-12">
+            <div class="nhsd-o-global-header__mega-menu-back">
+              {{ nhsd_a_icon_link({
+                classes: "nhsd-o-global-header__mega-menu__back-button nhsd-a-icon-link--col-white",
+                mirrored: 'true',
+                label: "Back to main menu",
+                icon: {
+                  id: "arrow_left",
+                  classes: "nhsd-a-icon--size-m"
+                }
+              }) }}
+            </div>
+            <div class="nhsd-o-global-header__mega-menu-close">
+              {{ nhsd_a_icon_link({
+                classes: "nhsd-o-global-header__mega-menu__close-button nhsd-a-icon-link--col-white",
+                label: "Close mega menu",
+                icon: {
+                  id: "x_circled",
+                  classes: "nhsd-a-icon--size-m"
+                }
+              }) }}
+            </div>
+          </div>
+          <div class="nhsd-o-global-header__mega-menu__bar nhsd-t-col-6  nhsd-!t-padding-left-0">
+            {{ nhsd_m_mega_menu_bar(params.megaMenuAboutUs) }}
+          </div>
+          <div class="nhsd-o-global-header__mega-menu__image nhsd-t-col-6 nhsd-!t-padding-right-0">
+            {{ nhsd_a_image(params.megaMenuAboutUs.image) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </header>

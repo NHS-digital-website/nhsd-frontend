@@ -1,0 +1,96 @@
+// Settings
+@use "scss-core/settings/font-face";
+@use "scss-core/settings/vars";
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/fonts" as nhsd-fonts;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/transition" as nhsd-transition;
+@use "scss-core/tokens/typography" as nhsd-typography;
+@use "scss-core/tokens/utils" as nhsd-utils;
+
+// Public members
+$active-border-width: .167rem;
+$icon-hover-offset: nhsd-spacing.get(2);
+
+// Private members
+$-root: ".nhsd-a-mega-menu-item";
+$-border-width: .0555rem;
+
+#{$-root} {
+  @include nhsd-utils.box-sizing;
+  @include nhsd-fonts.font-family;
+
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: nhsd-spacing.get(3) nhsd-spacing.get(4) nhsd-spacing.get(3) 0;
+  padding-right: nhsd-spacing.get(4);
+  border-radius: vars.$border-radius;
+  justify-content: space-between;
+  color: nhsd-colours.get("white");
+  transition-property: background-color, color, box-shadow;
+  transition-duration: nhsd-transition.$transition-duration;
+  text-decoration: none;
+
+  &:not(:last-child) {
+    margin-right: nhsd-spacing.get(3);
+  }
+
+  .nhsd-a-icon,
+  .nhsd-a-mega-menu-item__label {
+    @include nhsd-transition.trans-easing(nhsd-transition.$ease-out-expo);
+    transition-property: transform;
+    transition-duration: nhsd-transition.$transition-duration;
+    margin-bottom: 0;
+  }
+
+  .nhsd-t-heading-m {
+    color: nhsd-colours.get("white");
+  }
+
+  &.js-active:focus,
+  &.js-active:hover,
+  &:hover,
+  &:focus {
+    color: nhsd-colours.get("black");
+    background: nhsd-colours.get("yellow-20-tint");
+    box-shadow: inset 0 0 0 $active-border-width nhsd-colours.get("yellow");
+
+    .nhsd-a-mega-menu-item__label {
+      transform: translateX($icon-hover-offset);
+    }
+
+    .nhsd-t-heading-m {
+      color: nhsd-colours.get("black");
+    }
+
+    .nhsd-a-icon {
+      transform: translateX($icon-hover-offset);
+
+      & > svg {
+        fill: nhsd-colours.get("black");
+      }
+    }
+  }
+
+  &.js-active {
+    color: nhsd-colours.get("white");
+    background: none;
+  }
+
+  &:active {
+    color: nhsd-colours.get("white");
+    background: none;
+  }
+
+  .nhsd-a-icon {
+    & > svg {
+      fill: nhsd-colours.get("white");
+    }
+  }
+}

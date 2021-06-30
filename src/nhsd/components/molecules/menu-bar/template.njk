@@ -10,7 +10,9 @@
 {%- endif -%}
 
 <nav class="{{ classNames }}">
-  {% for link in params.links -%}
-    {{ nhsd_a_menu_item(link) }}
-  {%- endfor %}
+    {% for link in params.links -%}
+      <div class="nhsd-m-menu-bar__item" >
+        {{ nhsd_a_menu_item(link) }}
+      </div>
+    {%- endfor %}
 </nav>

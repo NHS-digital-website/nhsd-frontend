@@ -69,7 +69,7 @@ $-root: ".nhsd-o-global-header";
   &__content-box {
     display: flex;
     position: relative;
-    padding: 1rem 0 calc(1rem - 4px);
+    padding: 1rem 0 0;
     justify-content: space-between;
     align-items: center;
   }
@@ -141,6 +141,48 @@ $-root: ".nhsd-o-global-header";
       z-index: 10;
     }
   }
+
+  &__mega-menu {
+    display: none;
+    background: nhsd-colours.get("accessible-blue");
+
+    &-close {
+      padding: nhsd-spacing.get(3) 0;
+      text-align: end;
+    }
+
+    &-list {
+      @include mq($from: t) {
+        column-count: 2;
+        width: 100%;
+      }
+    }
+
+    &__image {
+      .nhsd-a-image__picture {
+        border-radius: vars.$border-radius 0 0 0;
+      }
+
+      height: 100%;
+    }
+
+    &-back {
+      display: none;
+      padding: nhsd-spacing.get(3) 0 nhsd-spacing.get(3) nhsd-spacing.get(4);
+    }
+
+    .nhsd-t-row {
+      align-items: flex-end;
+    }
+
+    .nhsd-t-col-6 {
+      margin-bottom: auto;
+    }
+
+    .nhsd-t-col-8 {
+      margin-bottom: auto;
+    }
+  }
 }
 
 // stylelint-disable selector-no-qualifying-type
@@ -167,11 +209,71 @@ html.nhsd-no-js {
 }
 // stylelint-enable selector-no-qualifying-type
 
+@include mq($until: l) {
+  html:not(.nhsd-no-js) {
+    #{$-root} {
+      &__mega-menu {
+        .nhsd-a-image__picture {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
 @include mq($until: m) {
   html:not(.nhsd-no-js) {
     #{$-root}:not(.js-menu-active) {
       #{$-root}__menu {
         display: none;
+      }
+    }
+
+    #{$-root} {
+      &__mega-menu {
+        &-back {
+          display: block;
+          margin-right: auto;
+        }
+
+        &-close {
+          padding-right: nhsd-spacing.get(3);
+        }
+
+        .nhsd-t-col-12 {
+          display: flex;
+          padding: 0;
+        }
+
+        .nhsd-t-col-6 {
+          width: 70%;
+        }
+
+        .nhsd-t-col-8 {
+          width: 70%;
+        }
+
+        .nhsd-t-row {
+          padding: 0 nhsd-spacing.get(10);
+        }
+      }
+    }
+  }
+}
+
+@include mq($until: s) {
+  html:not(.nhsd-no-js) {
+    #{$-root} {
+      .nhsd-t-col-6 {
+        width: 100%;
+      }
+
+      .nhsd-t-col-8 {
+        width: 100%;
+      }
+
+      .nhsd-t-row {
+        padding: 0;
       }
     }
   }

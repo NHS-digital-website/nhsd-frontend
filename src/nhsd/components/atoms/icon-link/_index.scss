@@ -45,6 +45,16 @@ $-line-thickness: vars.$active-line-thickness;
     }
   }
 
+  &--col-white {
+    color: nhsd-colours.get("white");
+
+    .nhsd-a-icon {
+      & > svg {
+        fill: nhsd-colours.get("white");
+      }
+    }
+  }
+
   &__label + .nhsd-a-icon,
   .nhsd-a-icon + &__label {
     margin-left: nhsd-spacing.get(1);

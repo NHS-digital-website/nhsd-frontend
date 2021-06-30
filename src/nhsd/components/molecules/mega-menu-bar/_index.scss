@@ -1,0 +1,118 @@
+// stylelint-disable scss/at-extend-no-missing-placeholder
+
+// Settings
+@use "scss-core/settings/vars";
+@use "scss-core/settings/media-queries" as *;
+
+// Tokens
+@use "scss-core/tokens/colours" as nhsd-colours;
+@use "scss-core/tokens/spacing" as nhsd-spacing;
+@use "scss-core/tokens/fonts" as nhsd-fonts;
+@use "scss-core/tokens/transition" as nhsd-transition;
+@use "scss-core/tokens/typography" as nhsd-typography;
+@use "scss-core/tokens/utils" as nhsd-utils;
+
+// Component imports
+@use "../../atoms/menu-item";
+
+// Private members
+$-root: ".nhsd-m-mega-menu-bar";
+
+#{$-root} {
+  display: flex;
+
+  .nhsd-t-list {
+    margin: 0 nhsd-spacing.get(3);
+  }
+
+  .nhsd-m-mega-menu-bar__container {
+    position: relative;
+    margin: 1px;
+
+    &:not(:first-child) {
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        border-bottom: vars.$base-line-thickness solid nhsd-colours.get("bright-blue");
+      }
+    }
+
+    &:hover,
+    &:focus,
+    &.js-active {
+      :first-child {
+        :first-child {
+          color: nhsd-colours.get("black");
+        }
+      }
+
+      &:before,
+      & + .nhsd-m-mega-menu-bar__container:before {
+        border-bottom: vars.$base-line-thickness solid transparent;
+      }
+    }
+  }
+
+  .nhsd-a-mega-menu-item {
+    margin-top: -1 * menu-item.$active-border-width;
+    margin-left: 0;
+
+    .nhsd-a-icon {
+      display: inline-flex;
+    }
+  }
+
+  .nhsd-m-mega-menu-bar__heading {
+    padding: nhsd-spacing.get(3) 0;
+  }
+}
+
+@include mq($until: s) {
+  #{$-root} {
+    display: flex;
+    flex-direction: column;
+
+    .nhsd-t-col-6 {
+      width: 100%;
+
+      .nhsd-m-mega-menu-bar__last {
+        &:after {
+          content: "";
+          display: block;
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          border-bottom: vars.$base-line-thickness solid nhsd-colours.get("bright-blue");
+        }
+
+        &:hover,
+        &:focus,
+        &.js-active {
+          &:after {
+            border-bottom: vars.$base-line-thickness solid transparent;
+          }
+        }
+      }
+    }
+
+    .nhsd-t-col-4 {
+      width: 100%;
+
+      .nhsd-m-mega-menu-bar__container {
+        .last {
+          &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            border-bottom: vars.$base-line-thickness solid nhsd-colours.get("bright-blue");
+          }
+        }
+      }
+    }
+  }
+}

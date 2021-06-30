@@ -13,7 +13,7 @@
 
 // Public members
 $active-border-width: .167rem;
-$icon-hover-offset: nhsd-spacing.get(4);
+$icon-hover-offset: nhsd-spacing.get(2);
 
 // Private members
 $-root: ".nhsd-a-menu-item";
@@ -79,12 +79,16 @@ html:not(.nhsd-no-js) {
     }
 
     &.js-active {
-      color: nhsd-colours.get("accessible-blue");
+      color: nhsd-colours.get("white");
       background: none;
+
+      &:after {
+        border-bottom: vars.$active-line-thickness solid transparent;
+      }
     }
 
     &:active {
-      color: nhsd-colours.get("accessible-blue");
+      color: nhsd-colours.get("white");
       background: none;
 
       &:after {

@@ -5,7 +5,7 @@ template rendering blows up Storybook :/ -#}
 {%- endmacro %}
 
 {#- Set classes -#}
-{%- set classNames = "nhsd-a-menu-item" -%}
+{%- set classNames = "nhsd-a-mega-menu-item" -%}
 {%- if params.classes -%}
   {% set classNames = classNames + " " + params.classes %}
 {%- endif -%}
@@ -28,8 +28,7 @@ template rendering blows up Storybook :/ -#}
   {%- set external = true -%}
 {% endif -%}
 
-<a class="{{ classNames }}" href="{{ href }}" {%- if external %} target="_blank" rel="external"{% endif -%} data-target="{{params.target}}">
-  <span class="nhsd-a-menu-item__label">{{ label }}</span>
-  {%- if external %}<span class="nhsd-t-sr-only"> (external link, opens in a new tab)</span>{% endif -%}
+<a class="{{ classNames }}" href="{{ href }}">
+  <span class="nhsd-a-mega-menu-item__label {{ label.classes }}">{{ label.name }}</span>
   {{ nhsd_a_icon({id: "arrow_right", classes: "nhsd-a-icon--size-s"}) }}
 </a>

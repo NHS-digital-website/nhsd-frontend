@@ -28,7 +28,22 @@ html:not(.nhsd-no-js) {
     }
   }
 
-  @include mq($until: m) {
+  .nhsd-m-menu-bar__item {
+    padding: nhsd-spacing.get(7) nhsd-spacing.get(2);
+
+    &.js-active {
+      color: nhsd-colours.get("white");
+      background: nhsd-colours.get("accessible-blue");
+
+      .nhsd-a-menu-item {
+        &:not(:hover, :focus) {
+          color: nhsd-colours.get("white");
+        }
+      }
+    }
+  }
+
+  @include mq($until: s) {
     #{$-root} {
       flex-direction: column;
       flex-wrap: nowrap;
@@ -36,27 +51,37 @@ html:not(.nhsd-no-js) {
       max-width: 36rem;
       padding: 0 nhsd-spacing.get(7);
 
-      .nhsd-a-menu-item {
-        display: flex;
-        position: relative;
-        width: 100%;
-        padding: nhsd-spacing.get(3) 0;
-        border-radius: vars.$border-radius;
-        justify-content: space-between;
+      .nhsd-m-menu-bar__item {
+        padding: 0;
 
         &:not(:first-child) {
-          margin-top: -1 * menu-item.$active-border-width;
-          margin-left: 0;
-
           &:before {
             content: "";
             display: block;
-            position: absolute;
+            position: relative;
             top: 0;
             width: 100%;
             border-bottom: vars.$base-line-thickness solid nhsd-colours.get("mid-grey-20-tint");
           }
         }
+
+        &:hover,
+        &:focus,
+        &.js-active {
+          &:before,
+          & + :before {
+            border-bottom: vars.$base-line-thickness solid transparent;
+          }
+        }
+      }
+
+      .nhsd-a-menu-item {
+        display: flex;
+        position: relative;
+        width: 100%;
+        padding: nhsd-spacing.get(3) nhsd-spacing.get(4) nhsd-spacing.get(3) 0;
+        border-radius: vars.$border-radius;
+        justify-content: space-between;
 
         &:after {
           content: none;
@@ -87,7 +112,7 @@ html:not(.nhsd-no-js) {
           }
 
           .nhsd-a-icon {
-            transform: translateX(-1 * menu-item.$icon-hover-offset);
+            transform: translateX(menu-item.$icon-hover-offset);
 
             & > svg {
               fill: nhsd-colours.get("black");

@@ -1,0 +1,51 @@
+{#- Import atom macros -#}
+{%- from "../../../njk/macros/atoms.njk" import
+  nhsd_a_mega_menu_item
+-%}
+
+{#- Set classes -#}
+{%- set classNames = "nhsd-m-mega-menu-bar" -%}
+{%- if params.classes -%}
+  {%- set classNames = classNames + " " + params.classes -%}
+{%- endif -%}
+
+<div class="{{ classNames }} nhsd-t-col-12">
+  {%- if params.col3Links -%}
+    <ul class="nhsd-t-list nhsd-t-col-4">
+      {% for link in params.col1Links -%}
+        <li {%- if loop.last %} class="nhsd-m-mega-menu-bar__container nhsd-m-mega-menu-bar__last"  {% else %} class="nhsd-m-mega-menu-bar__container" {% endif -%}>
+          {{ nhsd_a_mega_menu_item(link) }}
+        </li>
+      {%- endfor %}
+    </ul>
+    <ul class="nhsd-t-list nhsd-t-col-4">
+      {% for link in params.col2Links -%}
+        <li {%- if loop.last %} class="nhsd-m-mega-menu-bar__container nhsd-m-mega-menu-bar__last"  {% else %} class="nhsd-m-mega-menu-bar__container" {% endif -%}>
+          {{ nhsd_a_mega_menu_item(link) }}
+        </li>
+      {%- endfor %}
+    </ul>
+    <ul class="nhsd-t-list nhsd-t-col-4">
+      {% for link in params.col2Links -%}
+        <li class="nhsd-m-mega-menu-bar__container">
+          {{ nhsd_a_mega_menu_item(link) }}
+        </li>
+      {%- endfor %}
+    </ul>
+  {%- else -%}
+    <ul class="nhsd-t-list nhsd-t-col-6">
+      {% for link in params.col1Links -%}
+        <li {%- if loop.last %} class="nhsd-m-mega-menu-bar__container nhsd-m-mega-menu-bar__last"  {% else %} class="nhsd-m-mega-menu-bar__container " {% endif -%}>
+          {{ nhsd_a_mega_menu_item(link) }}
+        </li>
+      {%- endfor %}
+    </ul>
+    <ul class="nhsd-t-list nhsd-t-col-6">
+      {% for link in params.col2Links -%}
+        <li class="nhsd-m-mega-menu-bar__container">
+          {{ nhsd_a_mega_menu_item(link) }}
+        </li>
+      {%- endfor %}
+    </ul>
+  {%- endif -%}
+</div>
